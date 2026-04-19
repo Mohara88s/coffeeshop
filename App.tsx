@@ -14,6 +14,7 @@ import {
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { PRODUCTS_DATA } from './src/store/products.ts';
 import { ProductCardsList } from './src/components/ProductCardsList/ProductCardsList.tsx';
+import { ProductCardDetailed } from './src/components/ProductCardDetailed/ProductCardDetailed.tsx';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -30,7 +31,9 @@ function AppContent() {
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.container}>
-        <ProductCardsList list={PRODUCTS_DATA} />
+        <ProductCardsList title='Perfect for you' list={PRODUCTS_DATA} />
+        <ProductCardsList title='Hot offers' list={PRODUCTS_DATA} />
+        <ProductCardDetailed {...PRODUCTS_DATA[0]}/>
       </ScrollView>
     </SafeAreaView>
   );
@@ -38,10 +41,10 @@ function AppContent() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: 12,
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    gap: 10,
+    backgroundColor: 'white',
   },
   safeArea: {
     flex: 1,
