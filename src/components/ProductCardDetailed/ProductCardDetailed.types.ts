@@ -3,5 +3,7 @@ export interface ProductCardDetailedProps {
   title: string;
   price: number;
   imageUrl: string;
-  info:string;
+  info: string;
+  sizes: string[];
+  options: string[];
 }

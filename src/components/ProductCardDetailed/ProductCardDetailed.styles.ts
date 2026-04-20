@@ -19,17 +19,23 @@ export const styles = StyleSheet.create({
     padding: 24,
     gap: 8,
   },
+  titleContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   title: {
-    fontSize: 12,
+    fontSize: 18,
     lineHeight: 16,
-    fontWeight: '400',
+    fontWeight: '800',
+    letterSpacing: 0.18,
     color: '#1f2024',
   },
   price: {
-    fontSize: 14,
-    fontWeight: '700',
+    fontSize: 16,
+    fontWeight: '400',
+    lineHeight: 22,
     color: '#1f2024',
-    marginBottom: 24,
+    marginBottom: 16,
   },
   info: {
     fontSize: 12,
@@ -38,5 +44,18 @@ export const styles = StyleSheet.create({
     color: ' #71727a',
     letterSpacing: 0.122,
     marginBottom: 40,
+  },
+  sizesTitle: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: ' #1f2024',
+  },
+  sizes: {
+    flexDirection: 'row',
+    gap: 8,
+    marginBottom: 28,
+  },
+  options: {
+    marginBottom: 36,
   },
 });

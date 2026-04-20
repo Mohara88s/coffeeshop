@@ -1,8 +1,8 @@
 import { ViewStyle } from 'react-native';
 
-export interface CustomButtonProps {
+export interface CheckboxOptionProps {
   title: string;
+  selected: boolean;
   onPress: () => void;
   style?: ViewStyle;
-  icon?: React.ReactNode;
 }
