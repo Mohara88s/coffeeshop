@@ -1,5 +1,5 @@
 import { ProductCardProps } from '../ProductCard/ProductCard.types';
 export interface ProductCardsListProps {
   title: string;
-  list: ProductCardProps[];
+  list: Omit<ProductCardProps, 'onPress'>[];
 }

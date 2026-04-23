@@ -40,3 +40,5 @@ export const PRODUCTS_DATA = [
     options: ['milk'],
   },
 ];
+
+export const PRODUCTS_DATA_REV = [...PRODUCTS_DATA].reverse();

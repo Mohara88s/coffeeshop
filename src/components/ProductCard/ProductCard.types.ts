@@ -3,4 +3,5 @@ export interface ProductCardProps {
   title: string;
   price: number;
   imageUrl: string;
+  onPress: () => void;
 }
