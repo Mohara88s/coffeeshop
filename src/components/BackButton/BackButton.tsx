@@ -13,7 +13,7 @@ export const BackButton = ({ onPress, style, iconName }: BackButtonProps) => {
     >
       <Icon
         name={iconName ? iconName : 'chevron-left'}
-        size={20}
+        size={24}
         style={styles.icon}
       />
     </TouchableOpacity>

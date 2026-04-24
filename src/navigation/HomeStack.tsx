@@ -3,7 +3,6 @@ import { HomeStackParamList } from './types';
 import { ROUTES } from '../constants/routes';
 import { HomeScreen } from '../screens/HomeScreen/HomeScreen.tsx';
 import { CategoryScreen } from '../screens/CategoryScreen/CategoryScreen.tsx';
-import { ProductDetailsScreen } from '../screens/ProductDetailsScreen/ProductDetailsScreen.tsx';
 import { Platform } from 'react-native';
 import { BackButton } from '../components/BackButton/BackButton.tsx';
 
@@ -38,11 +37,6 @@ export const HomeStack = () => {
           title: route.params?.category || 'Category',
           headerLeft: () => renderHeaderLeft(navigation),
         })}
-      />
-
-      <Stack.Screen
-        name={ROUTES.ProductDetailsScreen}
-        component={ProductDetailsScreen}
       />
     </Stack.Navigator>
   );

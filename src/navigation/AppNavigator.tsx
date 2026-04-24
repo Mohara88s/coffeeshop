@@ -1,59 +1,47 @@
 import React from 'react';
+import { Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { HomeStack } from './HomeStack';
+import { createStackNavigator } from '@react-navigation/stack';
+import { MainTabs } from './MainTabs';
+import { ProductDetailsScreen } from '../screens/ProductDetailsScreen/ProductDetailsScreen.tsx';
 import { BucketScreen } from '../screens/BucketScreen/BucketScreen.tsx';
-import { ProfileScreen } from '../screens/ProfileScreen/ProfileScreen';
-import { MainTabParamList } from './types.ts';
+import { RootStackParamList } from './types.ts';
 import { ROUTES } from '../constants/routes';
-import Icon from 'react-native-vector-icons/Fontisto';
+import { BackButton } from '../components/BackButton/BackButton.tsx';
 
-const Tab = createBottomTabNavigator<MainTabParamList>();
+const RootStack = createStackNavigator<RootStackParamList>();
 
-const renderTabBarIcon = (route: any, color: string, size: number) => {
-  let iconName = 'dot-fill';
+const renderHeaderLeft = (navigation: any) => {
+  if (Platform.OS === 'ios') return undefined;
 
-  if (route.name === ROUTES.HomeStack) {
-    iconName = 'home';
-  } else if (route.name === ROUTES.BucketScreen) {
-    iconName = 'shopping-bag';
-  } else if (route.name === ROUTES.ProfileScreen) {
-    iconName = 'person';
-  }
-  return <Icon name={iconName} size={size} color={color} />;
+  return <BackButton onPress={() => navigation.goBack()} />;
 };
 
 export const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          headerShown: false,
-          tabBarIcon: ({ color, size }) => renderTabBarIcon(route, color, size),
-          tabBarActiveTintColor: '#006ffd',
-          tabBarInactiveTintColor: '#828282',
-        })}
+      <RootStack.Navigator
+        initialRouteName={ROUTES.MainTabs}
+        screenOptions={{ headerShown: false }}
       >
-        <Tab.Screen
-          name={ROUTES.HomeStack}
-          component={HomeStack}
-          options={{
-            title: 'Home',
-          }}
+        <RootStack.Screen name={ROUTES.MainTabs} component={MainTabs} />
+
+        <RootStack.Screen
+          name={ROUTES.ProductDetailsScreen}
+          component={ProductDetailsScreen}
         />
-        <Tab.Screen
+
+        <RootStack.Screen
           name={ROUTES.BucketScreen}
           component={BucketScreen}
-          options={{
+          options={({ navigation }) => ({
             title: 'Bucket',
-          }}
+            headerShown: true,
+            headerTitleAlign: 'center',
+            headerLeft: () => renderHeaderLeft(navigation),
+          })}
         />
-        <Tab.Screen
-          name={ROUTES.ProfileScreen}
-          component={ProfileScreen}
-          options={{ title: 'Profile' }}
-        />
-      </Tab.Navigator>
+      </RootStack.Navigator>
     </NavigationContainer>
   );
 };
