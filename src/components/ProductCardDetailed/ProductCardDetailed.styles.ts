@@ -5,11 +5,15 @@ const IMG_HEIGHT = width;
 
 export const styles = StyleSheet.create({
   container: {
+    flex: 1,
     width: '100%',
     flexDirection: 'column',
     padding: 0,
     overflow: 'hidden',
     backgroundColor: '#f8f9fe',
+  },
+  scrollContent: {
+    flexGrow: 1,
   },
   cardImage: {
     width: '100%',
@@ -18,6 +22,7 @@ export const styles = StyleSheet.create({
   infoContainer: {
     padding: 24,
     gap: 8,
+    flex: 1,
   },
   titleContainer: {
     flexDirection: 'row',
@@ -57,5 +62,8 @@ export const styles = StyleSheet.create({
   },
   options: {
     marginBottom: 36,
+  },
+  addToOrderButton: {
+    marginTop: 'auto',
   },
 });

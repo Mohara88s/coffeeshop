@@ -6,8 +6,13 @@ export const styles = StyleSheet.create({
   },
   backButtonWrapper: {
     position: 'absolute',
-    top: 0,
+    top: 50,
     left: 0,
     zIndex: 10,
+  },
+    notFoundMessage:{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

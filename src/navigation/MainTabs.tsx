@@ -10,6 +10,7 @@ const Tab = createBottomTabNavigator<MainTabParamList>();
 
 const renderTabBarIcon = (route: any, color: string, size: number) => {
   let iconName = 'dot-fill';
+  const CUSTOM_SIZE = 20;
 
   if (route.name === ROUTES.HomeStack) {
     iconName = 'home';
@@ -18,7 +19,7 @@ const renderTabBarIcon = (route: any, color: string, size: number) => {
   } else if (route.name === ROUTES.ProfileScreen) {
     iconName = 'person';
   }
-  return <Icon name={iconName} size={size} color={color} />;
+  return <Icon name={iconName} size={CUSTOM_SIZE} color={color} />;
 };
 
 const EmptyComponent = () => null;
@@ -31,6 +32,9 @@ export const MainTabs = () => {
         tabBarIcon: ({ color, size }) => renderTabBarIcon(route, color, size),
         tabBarActiveTintColor: '#006ffd',
         tabBarInactiveTintColor: '#828282',
+        tabBarStyle: {
+          paddingTop:10,
+        },
       })}
     >
       <Tab.Screen

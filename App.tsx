@@ -17,20 +17,4 @@ function App() {
   );
 }
 
-// function AppContent() {
-//   return (
-//     <SafeAreaView style={styles.safeArea}>
-//       <ScrollView contentContainerStyle={styles.container}>
-//         <ProductCardDetailed {...PRODUCTS_DATA[0]}/>
-//       </ScrollView>
-//     </SafeAreaView>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   safeArea: {
-//     flex: 1,
-//   },
-// });
-
 export default App;

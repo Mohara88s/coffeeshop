@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, Text, View, TouchableOpacity } from 'react-native';
+import { ScrollView, Image, Text, View, TouchableOpacity } from 'react-native';
 import { ProductCardDetailedProps } from './ProductCardDetailed.types.ts';
 import { CustomButton } from '../CustomButton/CustomButton.tsx';
 import { OptionButton } from '../OptionButton/OptionButton.tsx';
@@ -28,7 +28,10 @@ export const ProductCardDetailed = ({
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView 
+      style={styles.container} 
+      contentContainerStyle={styles.scrollContent}
+      bounces={false}>
       <Image
         source={{ uri: imageUrl }}
         style={styles.cardImage}
@@ -70,9 +73,10 @@ export const ProductCardDetailed = ({
         <CustomButton
           title="Add to order"
           onPress={() => {}}
+          style={styles.addToOrderButton}
           icon={<Icon name="plus" size={12} color="white" />}
         />
       </View>
-    </View>
+    </ScrollView>
   );
 };
