@@ -109,7 +109,7 @@ screenshots demonstrating navigation HW 4
 ![tables](./images/s_5.jpg)
 ![tables](./images/s_6.jpg)
 
-screenshots demonstrating navigation HW 5
+screenshots demonstrating api HW 5
 
 ![tables](./images/s_7.jpg)
 ![tables](./images/s_8.jpg)
