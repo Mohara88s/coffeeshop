@@ -1,7 +1,7 @@
 export interface ProductCardProps {
-  id: string;
+  id: number;
   title: string;
   price: number;
-  imageUrl: string;
+  image: string;
   onPress: () => void;
 }

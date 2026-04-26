@@ -1,9 +1,9 @@
 export interface ProductCardDetailedProps {
-  id: string;
+  id: number;
   title: string;
   price: number;
-  imageUrl: string;
-  info: string;
+  image: string;
+  description: string;
   sizes: string[];
   options: string[];
 }

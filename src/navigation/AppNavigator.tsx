@@ -1,6 +1,6 @@
 import React from 'react';
 import { Platform } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { MainTabs } from './MainTabs';
 import { ProductDetailsScreen } from '../screens/ProductDetailsScreen/ProductDetailsScreen.tsx';
@@ -8,6 +8,15 @@ import { BucketScreen } from '../screens/BucketScreen/BucketScreen.tsx';
 import { RootStackParamList } from './types.ts';
 import { ROUTES } from '../constants/routes';
 import { BackButton } from '../components/BackButton/BackButton.tsx';
+
+
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: '#fff',
+  },
+};
 
 const RootStack = createStackNavigator<RootStackParamList>();
 
@@ -19,7 +28,7 @@ const renderHeaderLeft = (navigation: any) => {
 
 export const AppNavigator = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={MyTheme}>
       <RootStack.Navigator
         initialRouteName={ROUTES.MainTabs}
         screenOptions={{ headerShown: false }}

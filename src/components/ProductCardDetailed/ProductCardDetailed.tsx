@@ -8,11 +8,10 @@ import Icon from 'react-native-vector-icons/Octicons';
 import { styles } from './ProductCardDetailed.styles.ts';
 
 export const ProductCardDetailed = ({
-  id,
   title,
   price,
-  imageUrl,
-  info,
+  image,
+  description,
   sizes,
   options,
 }: ProductCardDetailedProps) => {
@@ -33,7 +32,7 @@ export const ProductCardDetailed = ({
       contentContainerStyle={styles.scrollContent}
       bounces={false}>
       <Image
-        source={{ uri: imageUrl }}
+        source={{ uri: image }}
         style={styles.cardImage}
         resizeMode="cover"
       />
@@ -45,7 +44,7 @@ export const ProductCardDetailed = ({
           </TouchableOpacity>
         </View>
         <Text style={styles.price}>€ {price.toFixed(2)}</Text>
-        <Text style={styles.info}>{info}</Text>
+        <Text style={styles.info}>{description}</Text>
 
         <Text style={styles.sizesTitle}>Size</Text>
         <View style={styles.sizes}>

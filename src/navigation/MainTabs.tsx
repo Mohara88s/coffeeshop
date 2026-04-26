@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/Fontisto';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
-const renderTabBarIcon = (route: any, color: string, size: number) => {
+const renderTabBarIcon = (route: any, color: string) => {
   let iconName = 'dot-fill';
   const CUSTOM_SIZE = 20;
 

@@ -28,9 +28,9 @@ export const ProductCardsList = ({ title, list }: ProductCardsListProps) => {
       <FlatList
         data={list}
         renderItem={({ item }) => (
-          <ProductCard {...item} onPress={() => handleProductPress(item.id)} />
+          <ProductCard {...item} onPress={() => handleProductPress(String(item.id))} />
         )}
-        keyExtractor={item => item.id}
+        keyExtractor={item => String(item.id)}
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.listContent}
