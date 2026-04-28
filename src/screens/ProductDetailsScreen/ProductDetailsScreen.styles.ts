@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   SafeAreaView: { flex: 1 },
   backButtonWrapper: {
     position: 'absolute',
-    top: 50,
+    top: 0,
     left: 0,
     zIndex: 10,
   },

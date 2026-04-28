@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Product, productsApi } from '../api/product.ts';
 
+type GroupedProducts = Record<string, Product[]>;
+
 export const useProducts = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<GroupedProducts>({});
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -12,12 +14,19 @@ export const useProducts = () => {
       setError(null);
 
       const data = await productsApi.getAll();
+
       const extendedData = data.map(item => ({
         ...item,
         sizes: ['small', 'medium', 'large'],
         options: ['packaging', 'extended warranty'],
       }));
-      setProducts(extendedData);
+      const allComplicatedData = {
+        'Perfect for you': [...extendedData],
+        'Hot offers': [...extendedData].reverse(),
+        'New Arrivals': [...extendedData],
+      };
+
+      setProducts(allComplicatedData);
     } catch (e: any) {
       setError(e.message || 'Failed to load products');
     } finally {
@@ -34,5 +43,6 @@ export const useProducts = () => {
     loading,
     error,
     refetch: fetchProducts,
+    categories: Object.keys(products),
   };
 };

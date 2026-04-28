@@ -1,6 +1,4 @@
 import { ProductCardProps } from '../ProductCard/ProductCard.types';
-
-export interface ProductCardsListProps {
-  title: string;
+export interface CategoryProductCardsListProps {
   list: Omit<ProductCardProps, 'onPress'>[];
 }

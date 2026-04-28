@@ -29,11 +29,11 @@ export const MainTabs = () => {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarIcon: ({ color, size }) => renderTabBarIcon(route, color, size),
+        tabBarIcon: ({ color }) => renderTabBarIcon(route, color),
         tabBarActiveTintColor: '#006ffd',
         tabBarInactiveTintColor: '#828282',
         tabBarStyle: {
-          paddingTop:10,
+          paddingVertical: 20,
         },
       })}
     >

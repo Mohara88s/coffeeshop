@@ -7,10 +7,11 @@ export const ProductCard = ({
   price,
   image,
   onPress,
+  containerStyle,
 }: ProductCardProps) => {
   return (
     <TouchableOpacity onPress={onPress}>
-      <View style={styles.container}>
+      <View style={[styles.container, containerStyle]}>
         <Image
           source={{ uri: image }}
           style={styles.cardImage}

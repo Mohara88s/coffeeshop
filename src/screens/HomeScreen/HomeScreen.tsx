@@ -7,27 +7,31 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useProducts } from '../../hooks/useProducts.ts';
 
 export const HomeScreen = () => {
-  const { products, loading, error } = useProducts();
+  const { products, loading, error, categories } = useProducts();
   const renderContent = () => {
-  if (loading) {
-    return <ActivityIndicator size="large" />;
-  }
+    if (loading) {
+      return <ActivityIndicator size="large" />;
+    }
 
-  if (error) {
+    if (error) {
+      return (
+        <View style={styles.error}>
+          <Text style={styles.errorText}>{error}</Text>
+        </View>
+      );
+    }
     return (
-      <View style={styles.error}>
-        <Text style={styles.errorText}>{error}</Text>
-      </View>
-    );
-  }
-  return (
       <>
-        <ProductCardsList title="Perfect for you" list={products} />
-        <ProductCardsList title="Hot offers" list={[...products].reverse()} />
-        <ProductCardsList title="New Arrivals" list={products} />
+        {categories.map(category => (
+          <ProductCardsList
+            key={category}
+            title={category}
+            list={products[category]}
+          />
+        ))}
       </>
     );
-};
+  };
 
   return (
     <SafeAreaView edges={['top']} style={styles.SafeAreaView}>
