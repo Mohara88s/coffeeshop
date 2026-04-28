@@ -1,7 +1,7 @@
 import { Dimensions, StyleSheet } from 'react-native';
 
 const { width } = Dimensions.get('window');
-const IMG_HEIGHT = width;
+const IMG_HEIGHT = 0.8 * width;
 
 export const styles = StyleSheet.create({
   container: {
