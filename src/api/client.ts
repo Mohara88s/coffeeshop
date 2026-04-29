@@ -13,10 +13,19 @@ export const api = axios.create({
 api.interceptors.response.use(
   response => response,
   error => {
-    const message =
-      error.response.message ||
-      error.response.data.message ||
-      'Something went wrong';
+    let message = 'Something went wrong';
+
+    if (error.response) {
+      // Сервер відповів кодом 4xx або 5xx
+      message = error.response.data?.message || error.message;
+    } else if (error.request) {
+      // Запит був відправлений, але відповіді немає (проблеми з мережею)
+      message = 'No response from server. Check your internet connection.';
+    } else {
+      // Сталося щось інше при налаштуванні запиту
+      message = error.message;
+    }
+
     return Promise.reject(new Error(message));
   },
 );

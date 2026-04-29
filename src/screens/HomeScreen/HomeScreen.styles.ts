@@ -6,7 +6,6 @@ export const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'flex-start',
     gap: 10,
-    backgroundColor: 'white',
   },
   error: {
     flex: 1,

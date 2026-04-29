@@ -5,6 +5,7 @@ import { CustomButton } from '../CustomButton/CustomButton.tsx';
 import { OptionButton } from '../OptionButton/OptionButton.tsx';
 import { CheckboxOption } from '../CheckboxOption/CheckboxOption.tsx';
 import Icon from 'react-native-vector-icons/Octicons';
+import { useTheme } from '@react-navigation/native';
 import { styles } from './ProductCardDetailed.styles.ts';
 
 export const ProductCardDetailed = ({
@@ -18,6 +19,8 @@ export const ProductCardDetailed = ({
   const [selectedSize, setSelectedSize] = useState<string>(sizes[0]);
   const [selectedOptions, setSelectedOptions] = useState<string[]>(options);
 
+  const { colors } = useTheme();
+
   const toggleOption = (option: string) => {
     if (selectedOptions.includes(option)) {
       setSelectedOptions(selectedOptions.filter(item => item !== option));
@@ -27,10 +30,11 @@ export const ProductCardDetailed = ({
   };
 
   return (
-    <ScrollView 
-      style={styles.container} 
+    <ScrollView
+      style={styles.container}
       contentContainerStyle={styles.scrollContent}
-      bounces={false}>
+      bounces={false}
+    >
       <Image
         source={{ uri: image }}
         style={styles.cardImage}
@@ -38,15 +42,17 @@ export const ProductCardDetailed = ({
       />
       <View style={styles.infoContainer}>
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>{title}</Text>
+          <Text style={[styles.title, { color: colors.text }]}>{title}</Text>
           <TouchableOpacity onPress={() => {}} activeOpacity={0.8}>
             <Icon name="heart" size={20} color="#2f3036" />
           </TouchableOpacity>
         </View>
-        <Text style={styles.price}>€ {price.toFixed(2)}</Text>
-        <Text style={styles.info}>{description}</Text>
+        <Text style={[styles.price, { color: colors.text }]}>
+          € {price.toFixed(2)}
+        </Text>
+        <Text style={[styles.info, { color: colors.text }]}>{description}</Text>
 
-        <Text style={styles.sizesTitle}>Size</Text>
+        <Text style={[styles.sizesTitle, { color: colors.text }]}>Size</Text>
         <View style={styles.sizes}>
           {sizes.map(size => (
             <OptionButton

@@ -10,7 +10,6 @@ export const styles = StyleSheet.create({
     flexDirection: 'column',
     padding: 0,
     overflow: 'hidden',
-    backgroundColor: '#f8f9fe',
   },
   scrollContent: {
     flexGrow: 1,
@@ -18,6 +17,7 @@ export const styles = StyleSheet.create({
   cardImage: {
     width: '100%',
     height: IMG_HEIGHT,
+    backgroundColor: '#f8f9fe',
   },
   infoContainer: {
     padding: 24,
@@ -29,8 +29,8 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   title: {
+    maxWidth: '90%',
     fontSize: 18,
-    lineHeight: 16,
     fontWeight: '800',
     letterSpacing: 0.18,
     color: '#1f2024',

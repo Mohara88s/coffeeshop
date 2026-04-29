@@ -1,10 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { ThemeSwitcher } from '../../components/ThemeSwitcher/ThemeSwitcher';
 
 export const ProfileScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Профайл (ProfileScreen)</Text>
+      <Text style={styles.title}>ProfileScreen</Text>
+      <ThemeSwitcher />
     </View>
   );
 };
