@@ -7,18 +7,20 @@ export const ThemeContext = createContext<ThemeContextValue | undefined>(
 );
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>('light');
+  const [theme, setTheme] = useState<Theme>(Theme.LIGHT);
 
   const toggleTheme = () =>
-    setTheme(currentTheme => (currentTheme === 'light' ? 'dark' : 'light'));
+    setTheme(currentTheme =>
+      currentTheme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT,
+    );
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <StatusBar
         animated={true}
         key={theme}
-        barStyle={theme === 'dark' ? 'light-content' : 'dark-content'}
-        backgroundColor={theme === 'dark' ? '#000' : '#fff'}
+        barStyle={theme === Theme.DARK ? 'light-content' : 'dark-content'}
+        backgroundColor={theme === Theme.DARK ? '#000' : '#fff'}
       />
       {children}
     </ThemeContext.Provider>

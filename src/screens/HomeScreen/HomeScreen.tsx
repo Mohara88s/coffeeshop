@@ -5,7 +5,7 @@ import { ProductCardsList } from '../../components/ProductCardsList/ProductCards
 import Hero from '../../components/Hero/Hero.tsx';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useProducts } from '../../hooks/useProducts.ts';
-import { PRODUCTS_DATA } from '../../store/products.ts';
+// import { PRODUCTS_DATA } from '../../store/products.ts';
 
 export const HomeScreen = () => {
   const { products, loading, error, categories } = useProducts();

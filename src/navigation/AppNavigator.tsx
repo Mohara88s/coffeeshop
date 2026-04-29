@@ -13,6 +13,7 @@ import { RootStackParamList } from './types.ts';
 import { ROUTES } from '../constants/routes';
 import { BackButton } from '../components/BackButton/BackButton.tsx';
 import { useTheme } from '../context/themeContext/useTheme.ts';
+import { Theme } from '../context/themeContext/types.ts';
 
 const MyLightTheme = {
   ...DefaultTheme,
@@ -43,7 +44,9 @@ const renderHeaderLeft = (navigation: any) => {
 export const AppNavigator = () => {
   const { theme } = useTheme();
   return (
-    <NavigationContainer theme={theme === 'dark' ? MyDarkTheme : MyLightTheme}>
+    <NavigationContainer
+      theme={theme === Theme.DARK ? MyDarkTheme : MyLightTheme}
+    >
       <RootStack.Navigator
         initialRouteName={ROUTES.MainTabs}
         screenOptions={{ headerShown: false }}

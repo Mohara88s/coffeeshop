@@ -2,6 +2,7 @@ import React from 'react';
 import { Pressable, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Octicons';
 import { useTheme } from '../../context/themeContext/useTheme';
+import { Theme } from '../../context/themeContext/types';
 
 export const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useTheme();
@@ -11,15 +12,15 @@ export const ThemeSwitcher = () => {
       style={({ pressed }) => [
         styles.button,
         {
-          backgroundColor: theme === 'dark' ? '#333' : '#FFF',
+          backgroundColor: theme === Theme.DARK ? '#333' : '#FFF',
           opacity: pressed ? 0.7 : 1,
         },
       ]}
     >
       <Icon
-        name={theme === 'dark' ? 'sun' : 'moon'}
+        name={theme === Theme.DARK ? 'sun' : 'moon'}
         size={24}
-        color={theme === 'dark' ? '#ffbb00' : '#006ffd'}
+        color={theme === Theme.DARK ? '#ffbb00' : '#006ffd'}
       />
     </Pressable>
   );
