@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 import { ThemeSwitcher } from '../../components/ThemeSwitcher/ThemeSwitcher';
 import { useTheme } from '@react-navigation/native';
 import { styles } from './ProfileScreen.styles.ts';

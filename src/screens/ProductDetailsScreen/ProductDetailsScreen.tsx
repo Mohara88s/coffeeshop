@@ -8,9 +8,11 @@ import { useNavigation } from '@react-navigation/native';
 import { styles } from './ProductDetailsScreen.styles.ts';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useProduct } from '../../hooks/useProduct.ts';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export const ProductDetailsScreen = () => {
   const navigation = useNavigation();
+  const insets = useSafeAreaInsets();
   const route =
     useRoute<RouteProp<RootStackParamList, 'ProductDetailsScreen'>>();
 
@@ -38,12 +40,11 @@ if (loading) {
 };
 
   return (
-    <SafeAreaView style={styles.SafeAreaView} edges={['top']}>
-      <View style={styles.backButtonWrapper}>
+    <View style={[styles.container, { paddingTop: insets.top }]}>
+      <View style={[styles.backButtonWrapper, { paddingTop: insets.top }]}>
         <BackButton onPress={() => navigation.goBack()} iconName="x" />
       </View>
       {renderContent()}
-        
-    </ SafeAreaView>
+    </ View>
   );
 };

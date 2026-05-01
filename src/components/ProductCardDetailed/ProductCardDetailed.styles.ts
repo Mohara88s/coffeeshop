@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'column',
     padding: 0,
+    paddingBottom:24,
     overflow: 'hidden',
   },
   scrollContent: {
