@@ -39,7 +39,12 @@ export const ProductDetailsScreen = () => {
   };
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top }]}>
+    <View
+      style={[
+        styles.container,
+        { paddingTop: insets.top, marginBottom: insets.bottom },
+      ]}
+    >
       <View style={[styles.backButtonWrapper, { paddingTop: insets.top }]}>
         <BackButton onPress={() => navigation.goBack()} iconName="x" />
       </View>

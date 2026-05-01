@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'column',
     padding: 0,
-    paddingBottom:24,
+    paddingBottom: 24,
     overflow: 'hidden',
   },
   scrollContent: {
@@ -55,6 +55,7 @@ export const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '700',
     color: ' #1f2024',
+    marginBottom: 8,
   },
   sizes: {
     flexDirection: 'row',

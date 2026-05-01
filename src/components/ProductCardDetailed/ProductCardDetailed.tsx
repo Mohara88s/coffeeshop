@@ -51,17 +51,17 @@ export const ProductCardDetailed = ({
   };
 
   return (
-    <ScrollView
-      style={styles.container}
-      contentContainerStyle={styles.scrollContent}
-      bounces={false}
-    >
+    <View style={styles.container}>
       <Image
         source={{ uri: image }}
         style={styles.cardImage}
         resizeMode="cover"
       />
-      <View style={styles.infoContainer}>
+      <ScrollView
+        style={styles.infoContainer}
+        contentContainerStyle={styles.scrollContent}
+        bounces={false}
+      >
         <View style={styles.titleContainer}>
           <Text style={[styles.title, { color: colors.text }]}>{title}</Text>
           <TouchableOpacity onPress={() => {}} activeOpacity={0.8}>
@@ -95,14 +95,13 @@ export const ProductCardDetailed = ({
             />
           ))}
         </View>
-
-        <CustomButton
-          title="Add to order"
-          onPress={handleAddToCart}
-          style={styles.addToOrderButton}
-          icon={<Icon name="plus" size={12} color="white" />}
-        />
-      </View>
-    </ScrollView>
+      </ScrollView>
+      <CustomButton
+        title="Add to order"
+        onPress={handleAddToCart}
+        style={styles.addToOrderButton}
+        icon={<Icon name="plus" size={12} color="white" />}
+      />
+    </View>
   );
 };
