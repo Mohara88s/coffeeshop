@@ -8,12 +8,7 @@ export const BucketScreen = () => {
   const insets = useSafeAreaInsets();
 
   return (
-    <View
-      style={[
-        styles.container,
-        { paddingTop: insets.top, marginBottom: insets.bottom },
-      ]}
-    >
+    <View style={[styles.container, { marginBottom: insets.bottom }]}>
       {<BucketCardsList />}
     </View>
   );

@@ -101,7 +101,6 @@ screenshots demonstrating navigation HW 3
 ![tables](./images/s_1.jpg)
 ![tables](./images/s_2.jpg)
 
-
 screenshots demonstrating navigation HW 4
 
 ![tables](./images/s_3.jpg)
@@ -115,3 +114,10 @@ screenshots demonstrating api HW 5
 ![tables](./images/s_8.jpg)
 ![tables](./images/s_9.jpg)
 ![tables](./images/s_10.jpg)
+
+screenshots demonstrating Context API & Redux HW 6
+
+![tables](./images/s_11.jpg)
+![tables](./images/s_12.jpg)
+![tables](./images/s_13.jpg)
+![tables](./images/s_14.jpg)
