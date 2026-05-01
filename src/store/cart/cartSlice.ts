@@ -7,17 +7,25 @@ const initialState: CartState = {
   totalNumber: 0,
 };
 
-const generateCartKey = (payload: Omit<CartItem, 'quantity' | 'cartKey'>) => {
+const generateCartKey = (
+  payload: Omit<CartItem, 'quantity' | 'cartKey' | 'itemAmount'>,
+) => {
   const optionsString = [...payload.selectedOptions].sort().join(',');
   return `${payload.id}-${payload.selectedSize}-${optionsString}`;
 };
 
 const updateCartTotals = (state: CartState) => {
-  state.totalAmount = state.items.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0,
-  );
-  state.totalNumber = state.items.reduce((sum, item) => sum + item.quantity, 0);
+  let totalAmount = 0;
+  let totalNumber = 0;
+
+  state.items.forEach(item => {
+    item.itemAmount = item.price * item.quantity;
+    totalAmount += item.itemAmount;
+    totalNumber += item.quantity;
+  });
+
+  state.totalAmount = totalAmount;
+  state.totalNumber = totalNumber;
 };
 
 export const cartSlice = createSlice({
@@ -26,7 +34,9 @@ export const cartSlice = createSlice({
   reducers: {
     addToCart: (
       state,
-      action: PayloadAction<Omit<CartItem, 'quantity' | 'cartKey'>>,
+      action: PayloadAction<
+        Omit<CartItem, 'quantity' | 'cartKey' | 'itemAmount'>
+      >,
     ) => {
       const cartKey = generateCartKey(action.payload);
 
@@ -35,7 +45,12 @@ export const cartSlice = createSlice({
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
-        state.items.push({ ...action.payload, quantity: 1, cartKey });
+        state.items.push({
+          ...action.payload,
+          quantity: 1,
+          cartKey,
+          itemAmount: action.payload.price,
+        });
       }
 
       updateCartTotals(state);

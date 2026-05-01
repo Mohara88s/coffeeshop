@@ -18,6 +18,7 @@ export const BucketCardsList = () => {
         renderItem={({ item }) => <BucketCard bucketItem={item} />}
         keyExtractor={item => String(item.cartKey)}
         contentContainerStyle={styles.listContent}
+        showsVerticalScrollIndicator={false}
       />
       <View>
         <View style={styles.totalBox}>

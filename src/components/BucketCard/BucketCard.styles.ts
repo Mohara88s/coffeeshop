@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
-    paddingHorizontal: 16,
+    paddingLeft: 16,
     paddingVertical: 12,
     gap: 4,
   },
@@ -54,7 +54,7 @@ export const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   removeBtn: {
-    padding: 4,
+    padding: 2,
   },
   priceBox: {
     flexDirection: 'row',
@@ -80,7 +80,7 @@ export const styles = StyleSheet.create({
     color: '#1f2024',
     paddingHorizontal: 6,
   },
-  price: {
+  itemAmount: {
     fontSize: 14,
     fontWeight: '700',
     color: '#1f2024',

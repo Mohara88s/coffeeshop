@@ -5,6 +5,7 @@ export type CartItem = Product & {
   selectedOptions: string[];
   quantity: number;
   cartKey: string;
+  itemAmount: number;
 };
 
 export interface CartState {

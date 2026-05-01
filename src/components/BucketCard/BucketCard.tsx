@@ -17,7 +17,7 @@ export const BucketCard = ({ bucketItem }: BucketCardProps) => {
   const {
     title,
     image,
-    price,
+    itemAmount,
     selectedSize,
     selectedOptions,
     quantity,
@@ -46,7 +46,7 @@ export const BucketCard = ({ bucketItem }: BucketCardProps) => {
             }}
             style={styles.removeBtn}
           >
-            <Icon name="trash" size={16} color="red" />
+            <Icon name="trash" size={18} color="#006ffd" />
           </TouchableOpacity>
         </View>
         <View style={styles.priceBox}>
@@ -71,8 +71,8 @@ export const BucketCard = ({ bucketItem }: BucketCardProps) => {
               <Icon name="plus" size={10} color="#006ffd" />
             </TouchableOpacity>
           </View>
-          <Text style={[styles.price, { color: colors.text }]}>
-            € {price.toFixed(2)}
+          <Text style={[styles.itemAmount, { color: colors.text }]}>
+            € {itemAmount.toFixed(2)}
           </Text>
         </View>
       </View>
