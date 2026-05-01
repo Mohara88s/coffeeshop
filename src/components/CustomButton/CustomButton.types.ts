@@ -5,4 +5,5 @@ export interface CustomButtonProps {
   onPress: () => void;
   style?: ViewStyle;
   icon?: React.ReactNode;
+  disabled?: boolean;
 }

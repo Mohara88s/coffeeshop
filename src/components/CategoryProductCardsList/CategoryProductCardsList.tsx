@@ -1,4 +1,4 @@
-import { FlatList, TouchableOpacity, Text, View } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { CategoryProductCardsListProps } from './CategoryProductCardsList.types.ts';
 import { styles } from './CategoryProductCardsList.styles.ts';
 import { ProductCard } from '../ProductCard/index.ts';

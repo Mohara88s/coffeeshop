@@ -7,8 +7,12 @@ import { CheckboxOption } from '../CheckboxOption/CheckboxOption.tsx';
 import Icon from 'react-native-vector-icons/Octicons';
 import { useTheme } from '@react-navigation/native';
 import { styles } from './ProductCardDetailed.styles.ts';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../store/cart/cartSlice';
+import type { AppDispatch } from '../../store/store.ts';
 
 export const ProductCardDetailed = ({
+  id,
   title,
   price,
   image,
@@ -18,8 +22,25 @@ export const ProductCardDetailed = ({
 }: ProductCardDetailedProps) => {
   const [selectedSize, setSelectedSize] = useState<string>(sizes[0]);
   const [selectedOptions, setSelectedOptions] = useState<string[]>(options);
+  const dispatch = useDispatch<AppDispatch>();
 
   const { colors } = useTheme();
+
+  const handleAddToCart = () => {
+    dispatch(
+      addToCart({
+        id,
+        title,
+        price,
+        image,
+        description,
+        sizes,
+        options,
+        selectedSize,
+        selectedOptions,
+      }),
+    );
+  };
 
   const toggleOption = (option: string) => {
     if (selectedOptions.includes(option)) {
@@ -50,7 +71,7 @@ export const ProductCardDetailed = ({
         <Text style={[styles.price, { color: colors.text }]}>
           € {price.toFixed(2)}
         </Text>
-        <Text style={[styles.info, { color: colors.text }]}>{description}</Text>
+        <Text style={styles.info}>{description}</Text>
 
         <Text style={[styles.sizesTitle, { color: colors.text }]}>Size</Text>
         <View style={styles.sizes}>
@@ -77,7 +98,7 @@ export const ProductCardDetailed = ({
 
         <CustomButton
           title="Add to order"
-          onPress={() => {}}
+          onPress={handleAddToCart}
           style={styles.addToOrderButton}
           icon={<Icon name="plus" size={12} color="white" />}
         />

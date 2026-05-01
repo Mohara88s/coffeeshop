@@ -46,7 +46,7 @@ export const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 16,
     fontWeight: '400',
-    color: ' #71727a',
+    color: '#71727a',
     letterSpacing: 0.122,
     marginBottom: 40,
   },

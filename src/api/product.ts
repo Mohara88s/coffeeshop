@@ -3,10 +3,9 @@ import { api } from './client.ts';
 
 export type Product = {
   id: number;
-  title:string;
+  title: string;
   price: number;
   description: string;
-  category: string;
   image: string;
   sizes: string[];
   options: string[];
