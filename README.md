@@ -121,3 +121,6 @@ screenshots demonstrating Context API & Redux HW 6
 ![tables](./images/s_12.jpg)
 ![tables](./images/s_13.jpg)
 ![tables](./images/s_14.jpg)
+
+Added animation to BucketCard and used React.memo.
+![tables](./images/s_15.jpg)
