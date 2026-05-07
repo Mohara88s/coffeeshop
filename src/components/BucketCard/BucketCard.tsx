@@ -10,6 +10,7 @@ import {
   decrementQuantity,
 } from '../../store/cart/cartSlice';
 import { useTheme } from '@react-navigation/native';
+import Animated, { FadeOut, LinearTransition } from 'react-native-reanimated';
 
 export const BucketCard = ({ bucketItem }: BucketCardProps) => {
   const dispatch = useDispatch<AppDispatch>();
@@ -25,7 +26,11 @@ export const BucketCard = ({ bucketItem }: BucketCardProps) => {
   } = bucketItem;
 
   return (
-    <View style={styles.container}>
+    <Animated.View
+      style={styles.container}
+      exiting={FadeOut.duration(500)}
+      layout={LinearTransition.springify()}
+    >
       <Image
         source={{ uri: image }}
         style={styles.cardImage}
@@ -76,6 +81,6 @@ export const BucketCard = ({ bucketItem }: BucketCardProps) => {
           </Text>
         </View>
       </View>
-    </View>
+    </Animated.View>
   );
 };
