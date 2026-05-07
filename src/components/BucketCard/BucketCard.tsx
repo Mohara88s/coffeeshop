@@ -1,3 +1,4 @@
+import React, { memo } from 'react';
 import { Image, Text, View, TouchableOpacity } from 'react-native';
 import { BucketCardProps } from './BucketCard.types.ts';
 import { styles } from './BucketCard.styles.ts';
@@ -12,7 +13,7 @@ import {
 import { useTheme } from '@react-navigation/native';
 import Animated, { FadeOut, LinearTransition } from 'react-native-reanimated';
 
-export const BucketCard = ({ bucketItem }: BucketCardProps) => {
+const BucketCardComponent = ({ bucketItem }: BucketCardProps) => {
   const dispatch = useDispatch<AppDispatch>();
   const { colors } = useTheme();
   const {
@@ -84,3 +85,11 @@ export const BucketCard = ({ bucketItem }: BucketCardProps) => {
     </Animated.View>
   );
 };
+
+export const BucketCard = memo(BucketCardComponent, (prevProps, nextProps) => {
+  return (
+    prevProps.bucketItem.quantity === nextProps.bucketItem.quantity &&
+    prevProps.bucketItem.itemAmount === nextProps.bucketItem.itemAmount &&
+    prevProps.bucketItem.cartKey === nextProps.bucketItem.cartKey
+  );
+});
