@@ -5,9 +5,12 @@ import { BucketCard } from '../BucketCard/BucketCard.tsx';
 import type { RootState } from '../../store/store';
 import { useSelector } from 'react-redux';
 import { CustomButton } from '../CustomButton/CustomButton.tsx';
+import { useNavigation } from '@react-navigation/native';
+import { ROUTES } from '../../constants/routes';
 
 export const BucketCardsList = () => {
   const { colors } = useTheme();
+  const navigation = useNavigation<any>();
 
   const cart = useSelector((state: RootState) => state.cart);
 
@@ -29,7 +32,7 @@ export const BucketCardsList = () => {
         </View>
         <CustomButton
           title="Checkout"
-          onPress={() => {}}
+          onPress={() => navigation.navigate(ROUTES.CheckoutScreen)}
           disabled={cart.items.length === 0}
         />
       </View>

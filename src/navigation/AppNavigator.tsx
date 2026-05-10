@@ -9,6 +9,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { MainTabs } from './MainTabs';
 import { ProductDetailsScreen } from '../screens/ProductDetailsScreen/ProductDetailsScreen.tsx';
 import { BucketScreen } from '../screens/BucketScreen/BucketScreen.tsx';
+import { CheckoutScreen } from '../screens/CheckoutScreen/CheckoutScreen.tsx';
 import { RootStackParamList } from './types.ts';
 import { ROUTES } from '../constants/routes';
 import { BackButton } from '../components/BackButton/BackButton.tsx';
@@ -63,6 +64,17 @@ export const AppNavigator = () => {
           component={BucketScreen}
           options={({ navigation }) => ({
             title: 'Bucket',
+            headerShown: true,
+            headerTitleAlign: 'center',
+            headerLeft: () => renderHeaderLeft(navigation),
+          })}
+        />
+
+        <RootStack.Screen
+          name={ROUTES.CheckoutScreen}
+          component={CheckoutScreen}
+          options={({ navigation }) => ({
+            title: 'Checkout',
             headerShown: true,
             headerTitleAlign: 'center',
             headerLeft: () => renderHeaderLeft(navigation),

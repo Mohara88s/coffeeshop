@@ -16,4 +16,5 @@ export type RootStackParamList = {
     productId: number;
   };
   BucketScreen: undefined;
+  CheckoutScreen: undefined;
 };
