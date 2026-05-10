@@ -17,4 +17,5 @@ export type RootStackParamList = {
   };
   BucketScreen: undefined;
   CheckoutScreen: undefined;
+  SuccessfulOrderScreen: undefined;
 };

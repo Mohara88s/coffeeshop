@@ -67,5 +67,6 @@ export const styles = StyleSheet.create({
   },
   addToOrderButton: {
     marginTop: 'auto',
+    marginHorizontal: 24,
   },
 });

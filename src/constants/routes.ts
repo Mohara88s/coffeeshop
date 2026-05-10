@@ -6,6 +6,7 @@ export const ROUTES = {
   ProductDetailsScreen: 'ProductDetailsScreen',
   CategoryScreen: 'CategoryScreen',
   CheckoutScreen: 'CheckoutScreen',
+  SuccessfulOrderScreenScreen: 'SuccessfulOrderScreen',
   MainTabs: 'MainTabs',
   BucketTab: 'BucketTab',
 } as const;

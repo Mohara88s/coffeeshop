@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { ThemeSwitcher } from '../../components/ThemeSwitcher/ThemeSwitcher';
+import { ThemeSwitcher } from '../../components/ThemeSwitcher/ThemeSwitcher.tsx';
 import { useTheme } from '@react-navigation/native';
 import { styles } from './ProfileScreen.styles.ts';
 

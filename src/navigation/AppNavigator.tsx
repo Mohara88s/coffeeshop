@@ -15,6 +15,7 @@ import { ROUTES } from '../constants/routes';
 import { BackButton } from '../components/BackButton/BackButton.tsx';
 import { useTheme } from '../context/themeContext/useTheme.ts';
 import { Theme } from '../context/themeContext/types.ts';
+import { SuccessfulOrderScreen } from '../screens/SuccessfulOrderScreen/SuccessfulOrderScreen.tsx';
 
 const MyLightTheme = {
   ...DefaultTheme,
@@ -78,6 +79,15 @@ export const AppNavigator = () => {
             headerShown: true,
             headerTitleAlign: 'center',
             headerLeft: () => renderHeaderLeft(navigation),
+          })}
+        />
+        <RootStack.Screen
+          name={ROUTES.SuccessfulOrderScreenScreen}
+          component={SuccessfulOrderScreen}
+          options={() => ({
+            title: 'Checkout is successful',
+            headerShown: true,
+            headerTitleAlign: 'center',
           })}
         />
       </RootStack.Navigator>
