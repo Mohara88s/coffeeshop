@@ -14,13 +14,16 @@ export const SuccessfulOrderScreen = () => {
 
   return (
     <View style={[styles.container, { marginBottom: insets.bottom }]}>
+      <Text style={[styles.сongratulations, { color: colors.text }]}>
+        Congratulations on your purchase!
+      </Text>
       <Text style={[styles.text, { color: colors.text }]}>
         Our courier will deliver the order within 30 minutes from the moment of
         payment.
       </Text>
       <CustomButton
         style={styles.goHomeBtn}
-        title="Go to home page"
+        title="GO HOME"
         onPress={() => navigation.navigate(ROUTES.MainTabs)}
       />
     </View>

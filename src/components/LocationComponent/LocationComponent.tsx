@@ -15,6 +15,7 @@ import { ROUTES } from '../../constants/routes';
 import { useTheme } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 import { clearCart } from '../../store/cart/cartSlice.ts';
+import type { AppDispatch } from '../../store/store';
 
 export const LocationComponent = () => {
   const navigation = useNavigation<any>();

@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     padding: 24,
   },
-  title: {
+  сongratulations: {
     fontSize: 24,
     fontWeight: '600',
     marginBottom: 20,
