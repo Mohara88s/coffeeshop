@@ -78,7 +78,7 @@ export const LocationComponent = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.title, { color: colors.text }]}>Your location</Text>
+      <Text style={[styles.title, { color: colors.text }]}>Your location:</Text>
 
       {loading ? (
         <ActivityIndicator size="large" />
