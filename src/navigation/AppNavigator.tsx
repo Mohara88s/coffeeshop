@@ -23,6 +23,7 @@ const MyLightTheme = {
     ...DefaultTheme.colors,
     background: '#FFFFFF',
     text: '#1f2024',
+    border: '#c5c6cc',
   },
 };
 
@@ -32,6 +33,7 @@ const MyDarkTheme = {
     ...DarkTheme.colors,
     background: '#121212',
     text: '#FFFFFF',
+    border: '#FFFFFF',
   },
 };
 

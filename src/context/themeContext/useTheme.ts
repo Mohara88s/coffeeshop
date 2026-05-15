@@ -3,10 +3,8 @@ import { ThemeContext } from './ThemeContext.tsx';
 
 export const useTheme = () => {
   const context = useContext(ThemeContext);
-
   if (!context) {
     throw Error('useTheme must be used inside ThemeProvider');
   }
-
   return context;
 };
