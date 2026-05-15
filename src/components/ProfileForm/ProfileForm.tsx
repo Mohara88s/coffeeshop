@@ -11,46 +11,51 @@ export const ProfileForm = () => {
   const [firstName, setFirstName] = useState(user.firstName);
   const [lastName, setLastName] = useState(user.lastName);
   const [phoneNumber, setPhoneNumber] = useState(user.phoneNumber);
+  const [focusedField, setFocusedField] = useState<string | null>(null);
 
   const handleSave = () => {
     updateUser({ firstName, lastName, phoneNumber });
     Alert.alert('User data changed!');
   };
 
+  const getInputBorderStyle = (fieldName: string) => {
+    return {
+      borderColor: focusedField === fieldName ? '#006ffd' : colors.border,
+      color: colors.text,
+    };
+  };
+
   return (
     <View style={styles.form}>
       <Text style={[styles.label, { color: colors.text }]}>Name</Text>
       <TextInput
-        style={[
-          styles.input,
-          { color: colors.text, borderColor: colors.border },
-        ]}
+        style={[styles.input, getInputBorderStyle('firstName')]}
         value={firstName}
         onChangeText={setFirstName}
+        onFocus={() => setFocusedField('firstName')}
+        onBlur={() => setFocusedField(null)}
         placeholder="Name"
         placeholderTextColor="#8f9098"
       />
 
       <Text style={[styles.label, { color: colors.text }]}>Last name</Text>
       <TextInput
-        style={[
-          styles.input,
-          { color: colors.text, borderColor: colors.border },
-        ]}
+        style={[styles.input, getInputBorderStyle('lastName')]}
         value={lastName}
         onChangeText={setLastName}
+        onFocus={() => setFocusedField('lastName')}
+        onBlur={() => setFocusedField(null)}
         placeholder="Last name"
         placeholderTextColor="#8f9098"
       />
 
       <Text style={[styles.label, { color: colors.text }]}>Phone</Text>
       <TextInput
-        style={[
-          styles.input,
-          { color: colors.text, borderColor: colors.border },
-        ]}
+        style={[styles.input, getInputBorderStyle('phoneNumber')]}
         value={phoneNumber}
         onChangeText={setPhoneNumber}
+        onFocus={() => setFocusedField('phoneNumber')}
+        onBlur={() => setFocusedField(null)}
         placeholder="+380..."
         keyboardType="phone-pad"
         placeholderTextColor="#8f9098"
@@ -60,6 +65,7 @@ export const ProfileForm = () => {
         title="Save"
         onPress={handleSave}
         style={styles.saveButton}
+        disabled={!firstName.trim() || !lastName.trim() || !phoneNumber.trim()}
       />
     </View>
   );
