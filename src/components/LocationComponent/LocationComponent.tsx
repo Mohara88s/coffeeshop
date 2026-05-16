@@ -99,7 +99,7 @@ export const LocationComponent = () => {
       <CustomButton
         style={styles.checkoutBtn}
         title="Checkout"
-        onPress={() => handleCheckout()}
+        onPress={handleCheckout}
         disabled={!address}
       />
     </View>

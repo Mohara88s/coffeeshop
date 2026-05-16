@@ -12,6 +12,13 @@ export const SuccessfulOrderScreen = () => {
   const { colors } = useTheme();
   const navigation = useNavigation<any>();
 
+  const handleGoHome = () => {
+    navigation.reset({
+      index: 0,
+      routes: [{ name: ROUTES.MainTabs }],
+    });
+  };
+
   return (
     <View style={[styles.container, { marginBottom: insets.bottom }]}>
       <Text style={[styles.сongratulations, { color: colors.text }]}>
@@ -24,7 +31,7 @@ export const SuccessfulOrderScreen = () => {
       <CustomButton
         style={styles.goHomeBtn}
         title="GO HOME"
-        onPress={() => navigation.navigate(ROUTES.MainTabs)}
+        onPress={handleGoHome}
       />
     </View>
   );
