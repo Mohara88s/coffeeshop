@@ -124,3 +124,30 @@ screenshots demonstrating Context API & Redux HW 6
 
 Added animation to BucketCard and used React.memo.
 ![tables](./images/s_15.jpg)
+
+For final:
+
+Added animation to Hero
+![tables](./images/s_16.jpg)
+
+Added Checkout screen with user data and location getting
+![tables](./images/s_17.jpg)
+
+Added successfully order screen
+![tables](./images/s_18.jpg)
+
+Added user data changing at the Profile screen
+![tables](./images/s_19.jpg)
+![tables](./images/s_20.jpg)
+![tables](./images/s_21.jpg)
+
+The React Context API was chosen to store user data and app's theme , as it is React's native solution for distributing global data. Those data is relatively static and changes infrequently, which completely eliminates the risks of redundant component renderers. Using the Context API in conjunction with the custom useAuth hook allowed me to avoid prop drilling.
+
+Redux Toolkit was chosen to manage the cart state, as the cart is the most dynamic module of the application with complex business logic. Unlike the Context API, Redux Toolkit, thanks to the selector mechanism, optimizes rerenders and updates only those components that directly reflect changed products. Using the built-in Immer library simplifies the logic of adding, removing, and recalculating the cost of products, making the code safe and error-resistant, and a clear structure of actions ensures complete predictability of the state.
+
+## 📊 Project presentation
+
+You can familiarize yourself with the concept, UX solutions, and architecture of the application:
+
+- [View presentation in PDF](./assets/coffeeshop-app-presentation.pdf)
+- [Slides in Figma](./assets/coffeeshop-app-presentation.fig)
